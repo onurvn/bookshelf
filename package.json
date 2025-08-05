@@ -1,0 +1,21 @@
+{
+  "name": "bookshelf-app",
+  "version": "1.0.0",
+  "description": "Modern kitap takip uygulaması",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:frontend\" \"npm run dev:backend\"",
+    "dev:frontend": "cd frontend && npm run dev",
+    "dev:backend": "cd backend && npm run dev",
+    "build": "cd frontend && npm run build",
+    "build:backend": "cd backend && npm run prod",
+    "start": "cd frontend && npm start",
+    "start:backend": "cd backend && npm start",
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install",
+    "clean": "cd frontend && npm run clean && cd ../backend && rm -rf node_modules",
+    "lint": "cd frontend && npm run lint",
+    "type-check": "cd frontend && npm run type-check"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
