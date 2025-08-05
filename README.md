@@ -1,184 +1,172 @@
-# 📚 Bookshelf - Kitap Takip Uygulaması
+# 📚 Bookshelf - Book Tracking Application
 
-Modern, kullanıcı dostu kitap takip uygulaması. Okudukların, okumakta oldukların ve okumak istediklerin kitapları kolayca takip et!
+Modern and user-friendly book tracking application. Easily manage the books you've read, are currently reading, and want to read!
 
-## 🚀 Özellikler
+## ✨ Features
 
-- ✅ Kullanıcı kayıt/giriş sistemi
-- 📖 Kitap ekleme, düzenleme, silme
-- 📊 Okuma ilerleme takibi
-- ⭐ Puanlama ve yorum sistemi
-- 🔍 Arama ve filtreleme
-- 📱 Responsive tasarım (mobil + desktop)
-- 📈 Okuma istatistikleri dashboard'u
+- 🔐 Secure user registration/login system
+- 📖 Add, edit, and delete books
+- 📊 Reading progress tracking
+- ⭐ Book rating and review system
+- 🔍 Advanced search and filtering
+- 📱 Responsive design (mobile-friendly)
+- 📈 Personal reading statistics
 
-## 🛠️ Teknolojiler
+## 🛠️ Tech Stack
 
 ### Frontend
 
-- Next.js 14 (App Router)
-- TypeScript
-- Tailwind CSS
-- Zustand (State Management)
-- React Hook Form
-- React Hot Toast
-- React Icons
+- **Next.js 15** - React framework (App Router)
+- **TypeScript** - Type safety
+- **Tailwind CSS** - Styling
+- **React Hot Toast** - Notifications
 
 ### Backend
 
-- Node.js
-- Express.js
-- MongoDB + Mongoose
-- JWT Authentication
-- Bcrypt.js
+- **Node.js** - Runtime environment
+- **Express.js** - Web framework
+- **MongoDB** - Database
+- **Mongoose** - ODM
+- **JWT** - Authentication
+- **bcryptjs** - Password hashing
 
-## 🏃‍♂️ Hızlı Başlangıç
+## 🚀 Installation and Setup
 
-### Gereksinimler
+### Requirements
 
-- Node.js (v18 veya üzeri)
-- MongoDB (yerel kurulum veya MongoDB Atlas)
+- Node.js (v18+)
+- MongoDB (local or Atlas)
+- npm or yarn
 
-### Kurulum
+### 1. Clone the repository
 
-1. **Tüm bağımlılıkları yükle:**
+```bash
+git clone <repository-url>
+cd bookshelf-app
+```
+
+### 2. Install all dependencies
 
 ```bash
 npm run install:all
 ```
 
-2. **MongoDB'yi başlat:**
+### 3. Backend configuration
 
 ```bash
-# Yerel MongoDB
-mongod
+# Create backend/.env file (copy from .env.example)
+cp backend/.env.example backend/.env
 
-# Veya MongoDB Atlas kullanıyorsanız connection string'i backend/.env dosyasında güncelleyin
-```
-
-3. **Backend environment dosyasını düzenle:**
-
-```bash
-# backend/.env dosyasını açın ve gerekli ayarları yapın
+# Edit the .env file:
 MONGODB_URI=mongodb://localhost:27017/bookshelf
-JWT_SECRET=your-super-secret-jwt-key-change-this-in-production
+JWT_SECRET=your-super-secret-jwt-key-64-characters-long
+PORT=5000
+NODE_ENV=development
+FRONTEND_URL=http://localhost:3000
 ```
 
-4. **Geliştirme sunucularını başlat:**
+### 4. Start development servers
 
 ```bash
 npm run dev
 ```
 
-🌐 **Frontend:** http://localhost:3000  
-🔧 **Backend API:** http://localhost:5000
+- 🌐 **Frontend:** http://localhost:3000
+- 🔧 **Backend API:** http://localhost:5000
 
 ## 📋 API Endpoints
 
 ### Authentication
 
-- `POST /api/auth/register` - Kullanıcı kaydı
-- `POST /api/auth/login` - Kullanıcı girişi
-- `GET /api/auth/profile` - Kullanıcı profili
+```
+POST /api/auth/register    # User registration
+POST /api/auth/login       # User login
+GET  /api/auth/profile     # User profile
+```
 
 ### Books
 
-- `GET /api/books` - Kitapları listele (filtreleme ve arama)
-- `GET /api/books/:id` - Tek kitap detayı
-- `POST /api/books` - Yeni kitap ekle
-- `PUT /api/books/:id` - Kitap güncelle
-- `DELETE /api/books/:id` - Kitap sil
-- `GET /api/books/stats/dashboard` - Dashboard istatistikleri
+```
+GET    /api/books          # List books
+GET    /api/books/:id      # Book details
+POST   /api/books          # Add new book
+PUT    /api/books/:id      # Update book
+DELETE /api/books/:id      # Delete book
+GET    /api/books/stats    # Statistics
+```
 
-## 🎯 Kullanım
-
-1. **Kayıt/Giriş:** Uygulamaya kayıt olun veya giriş yapın
-2. **Dashboard:** Ana sayfada kitap istatistiklerinizi görün
-3. **Kitap Ekle:** "Kitap Ekle" butonuyla yeni kitaplar ekleyin
-4. **Takip:** Kitaplarınızın okuma durumunu ve ilerlemesini takip edin
-5. **Arama/Filtre:** Kitaplarınızı arayın ve duruma göre filtreleyin
-
-## 📁 Proje Yapısı
+## 📁 Project Structure
 
 ```
 bookshelf-app/
-├── frontend/              # Next.js uygulaması
+├── frontend/                 # Next.js application
 │   ├── src/
-│   │   ├── app/          # App Router sayfaları
-│   │   ├── lib/          # Utility fonksiyonları
-│   │   └── store/        # Zustand store'ları
-│   ├── public/           # Statik dosyalar
+│   │   ├── app/             # App Router pages
+│   │   └── lib/             # Utility functions
+│   ├── public/              # Static files
 │   └── package.json
-├── backend/               # Express.js API
-│   ├── models/           # MongoDB modelleri
-│   ├── routes/           # API route'ları
-│   ├── middleware/       # Express middleware'leri
-│   ├── server.js         # Ana sunucu dosyası
+├── backend/                  # Express.js API
+│   ├── models/              # MongoDB models
+│   ├── routes/              # API routes
+│   ├── middleware/          # Express middleware
+│   ├── server.js            # Main server
 │   └── package.json
-├── package.json          # Root package.json
-└── README.md
+└── package.json             # Root scripts
 ```
 
-## 🔧 Geliştirme
-
-### Frontend Geliştirme
+## 🔧 Development Commands
 
 ```bash
-cd frontend
+# Run all services
 npm run dev
+
+# Frontend only
+npm run dev:frontend
+
+# Backend only
+npm run dev:backend
+
+# Production build
+npm run build
+
+# Linting
+npm run lint
+
+# Type checking
+npm run type-check
 ```
-
-### Backend Geliştirme
-
-```bash
-cd backend
-npm run dev
-```
-
-### Veritabanı Şeması
-
-**Users Collection:**
-
-- name, email, password, avatar, timestamps
-
-**Books Collection:**
-
-- title, author, description, totalPages, currentPage
-- status, rating, review, coverImage, isbn
-- publishedYear, genre, userId, startDate, finishDate
-- timestamps, virtual progress field
 
 ## 🚀 Deployment
 
 ### Frontend (Vercel)
 
-```bash
-cd frontend
-npm run build
-# Vercel'e deploy edin
-```
+1. Connect to your Vercel account
+2. Deploy the `frontend` folder
+3. Set environment variables
 
-### Backend (Railway/Render/Heroku)
+### Backend (Railway/Render)
 
-```bash
-cd backend
-# Environment variables'ları ayarlayın
-# MongoDB Atlas connection string
-# JWT_SECRET
-```
+1. MongoDB Atlas connection string
+2. Environment variables:
+   ```
+   MONGODB_URI=mongodb+srv://...
+   JWT_SECRET=your-production-secret
+   NODE_ENV=production
+   FRONTEND_URL=https://your-app.vercel.app
+   ```
 
-## 🤝 Katkıda Bulunma
+## 🤝 Contributing
 
-1. Fork edin
-2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
-3. Commit edin (`git commit -m 'Add amazing feature'`)
-4. Push edin (`git push origin feature/amazing-feature`)
-5. Pull Request açın
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'Add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Create a Pull Request
 
-## 📄 Lisans
+## 📄 License
 
-Bu proje MIT lisansı altında lisanslanmıştır.
+This project is licensed under the MIT License.
 
 ---
 
-**Bookshelf** ile kitap okuma yolculuğunuzu keyifle takip edin! 📚✨
+Take your reading experience to the next level with **Bookshelf**! �✨
